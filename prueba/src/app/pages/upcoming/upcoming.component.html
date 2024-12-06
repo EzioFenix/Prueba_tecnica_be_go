@@ -1,0 +1,19 @@
+<app-header-title [title]="'Upcoming'"></app-header-title>
+
+<!--<img src="icons/pickUp.svg">-->
+<ng-container *ngIf="incomingOrderResponse!==undefined">
+
+    <div class="search-container">
+        <app-search-order [incomingOrderNumberList]="getListNumberOrders()"
+            (orderSelected)="this.selectedOrder($event)">
+        </app-search-order>
+    </div>
+
+    <div class="order-details-container">
+        <app-order-details-resume [incomingOrderResponse]="incomingOrderResponse">
+        </app-order-details-resume>
+    </div>
+    
+
+
+</ng-container>

@@ -1,0 +1,15 @@
+<div class="search-order">
+  <mat-form-field class="search-order__form-field" appearance="fill">
+    <mat-label *ngIf="!searchControl.value">
+      <mat-icon class="search-icon">search</mat-icon>
+      <span class="search-text">Search..</span>
+    </mat-label>
+    <input class="search-input-text" type="text" matInput [formControl]="searchControl" [matAutocomplete]="auto" />
+    <div class="search-order__divider"></div>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectOrder($event.option.value)">
+      <mat-option *ngFor="let order of filteredOrders$ | async" [value]="order">
+        {{ order }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>

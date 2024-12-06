@@ -1,0 +1,48 @@
+/* Contenedor principal */
+.header-title_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .div-espaciado{
+    padding-top: 65px;
+  }
+  
+  /* Íconos (flecha y campana) */
+  .header-title__icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+
+
+  .header-title__arrow{
+    width: 10px;
+    height: 18px;
+  }
+  
+  .header-title__icon--right .header-title__bell {
+    width: 20px;
+    height: 20px;
+    border: 2px solid yellow;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: yellow;
+    font-size: 12px;
+  }
+  
+  /* Texto central */
+  .header-title__text {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  

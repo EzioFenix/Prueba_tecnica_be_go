@@ -1,0 +1,61 @@
+<div class="order-card">
+  <div class="order-card__header">
+    <span class="order-card__reference">Referencia A1180</span>
+    <span class="order-card__order">Order #7804GNZ</span>
+  </div>
+  <div class="order-card__section padding-1st">
+    <div class="order-card__icon" (click)="onPickupClick()">
+      <img src="icons/pickUp.svg" alt="Pickup Icon" class="order-card__image" />
+    </div>
+    <div class="order-card__details">
+      <span class="order-card__type heavy">PICKUP</span>
+      <span class="order-card__location heavy">New York</span>
+      <span class="order-card__address semi-bold"
+        >25 Mortada street, Gainalkes..</span
+      >
+      <span class="order-card__status semi-bold">
+        <div class="order-details-resume__status">
+          <span
+            class="order-details-resume__status-indicator"
+            [ngClass]="{
+              'order-status-assigned': 'Orden Asignada' == 'Orden Asignada',
+              'order-status-completed': 'Orden Asignada' != 'Orden Asignada'
+            }"
+          >
+            <!-- contenido del pedido -->
+          </span>
+
+          <span class="order-details-resume__status-text semi-bold"></span>
+          Accepted
+        </div>
+      </span>
+    </div>
+  </div>
+  
+  <div class="order-card__section padding-2nd">
+    <div class="order-card__icon" (click)="onDropoffClick()">
+      <img src="icons/dropOff.svg" alt="Pickup Icon" class="order-card__image" />
+    </div>
+    <div class="order-card__details">
+      <span class="order-card__type heavy">PICKUP</span>
+      <span class="order-card__location heavy">New York</span>
+      <span class="order-card__address semi-bold">1789 NJ-27, Edison, 08817..</span>
+      <span class="order-card__status semi-bold">
+        <div class="order-details-resume__status">
+          <span
+            class="order-details-resume__status-indicator"
+            [ngClass]="{
+              'order-status-assigned': 'Orden Asignada' == 'Orden Asignada',
+              'order-status-completed': 'Orden Asignada' != 'Orden Asignada'
+            }"
+          >
+            <!-- contenido del pedido -->
+          </span>
+
+          <span class="order-details-resume__status-text semi-bold"></span>
+          On hold
+        </div>
+      </span>
+    </div>
+  </div>
+</div>

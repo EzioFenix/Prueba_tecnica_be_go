@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'Avenir';
+    src: local('Avenir'),
+         url('assets/fonts/avenir/Avenir-Roman.woff2') format('woff2'),
+         url('assets/fonts/avenir/Avenir-Roman.woff') format('woff'),
+         url('assets/fonts/avenir/Avenir-Roman.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/avenir/Avenir-Roman.eot') format('eot'),
+         url('assets/fonts/avenir/Avenir-Roman.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*setear los elementos*/
+* {
+    font-family: 'Avenir', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    --accent-color: #FFEE00;
+    --text-color-lighter:#EDEDED;
+    --text-color-lighter-alternative:#969798;
+    --text-color-darker: #080B11;
+
+    --background-color: #080B11;
+}
+
+.background{
+    background-color: var(--background-color);
+    min-height: 100vh;
+    height: 100%;
+    width: 100vw;
+    margin: 0px !important;
+}
+
+
+
+.mdc-floating-label{
+    position: relative !important;
+    height: 100% !important;
+}
+input,
+mat-label{
+    margin: auto !important;
+}
+
+
+.mat-mdc-text-field-wrapper{
+    padding: 0px 17.94px !important;
+    background-color: #080C0F !important;
+    color: #F5F5F5 !important;
+}
+.mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input, .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control
+{
+    color: #F5F5F5 !important;
+}
+
+.mdc-line-ripple {
+   visibility: hidden !important;
+}
+
+.mdc-text-field{
+    height: 100% !important;
+    overflow: visible !important;
+}
+
+
+.mdc-text-field--filled{
+    border-top-left-radius: 28px !important;
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 6px !important;
+    border-bottom-left-radius: 4px !important;
+}
+mat-mdc-text-field-wrapper {
+    border-radius: 0px !important;
+  }
+
+
+/*Grueso de letras*/
+
+.thin {
+  font-weight: 100;
+}
+
+.extra-light {
+  font-weight: 200;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.normal {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.semi-bold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.extra-bold {
+  font-weight: 800;
+}
+
+.heavy {
+  font-weight: 900;
+}
+
+  
