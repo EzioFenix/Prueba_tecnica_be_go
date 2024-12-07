@@ -1,61 +1,235 @@
-<div class="order-card">
-  <div class="order-card__header">
-    <span class="order-card__reference">Referencia A1180</span>
-    <span class="order-card__order">Order #7804GNZ</span>
-  </div>
-  <div class="order-card__section padding-1st">
-    <div class="order-card__icon" (click)="onPickupClick()">
-      <img src="icons/pickUp.svg" alt="Pickup Icon" class="order-card__image" />
-    </div>
-    <div class="order-card__details">
-      <span class="order-card__type heavy">PICKUP</span>
-      <span class="order-card__location heavy">New York</span>
-      <span class="order-card__address semi-bold"
-        >25 Mortada street, Gainalkes..</span
+<div *ngIf="driverData.result" class="principal">
+  <app-header-title
+    [title]="'Cargo Details'"
+    [redirectBackUrl]="'upcoming'"
+  ></app-header-title>
+  <div class="order-card">
+    <div class="order-card__header">
+      <span class="order-card__reference"
+        >Referencia
+        <span *ngIf="isReferenceFound">
+          {{ driverData.result.reference_number }}
+        </span></span
       >
-      <span class="order-card__status semi-bold">
-        <div class="order-details-resume__status">
-          <span
-            class="order-details-resume__status-indicator"
-            [ngClass]="{
-              'order-status-assigned': 'Orden Asignada' == 'Orden Asignada',
-              'order-status-completed': 'Orden Asignada' != 'Orden Asignada'
-            }"
-          >
-            <!-- contenido del pedido -->
-          </span>
+      <span class="order-card__order"
+        >Order #{{ orderData[0].order_number }}</span
+      >
+    </div>
+    <div class="order-card__section padding-1st" (click)="onPickupClick()">
+      <div class="order-card__icon">
+        <img
+          src="icons/pickUp.svg"
+          alt="Pickup Icon"
+          class="order-card__image"
+        />
+      </div>
+      <div class="order-card__details">
+        <span class="order-card__type heavy">PICKUP</span>
+        <span class="order-card__location heavy">{{
+          orderData[0].destinations[0].address.split(",").pop()
+        }}</span>
+        <span class="order-card__address semi-bold"
+          >{{
+            orderData[0].destinations[0].address.slice(
+              0,
+              orderData[0].destinations[0].address.indexOf(",")
+            )
+          }}..</span
+        >
+        <span class="order-card__status semi-bold">
+          <div class="order-details-resume__status">
+            <span
+              class="order-details-resume__status-indicator"
+              [ngClass]="{
+                'order-status-assigned': 'Orden Asignada' == 'Orden Asignada',
+                'order-status-completed': 'Orden Asignada' != 'Orden Asignada'
+              }"
+            >
+            </span>
 
-          <span class="order-details-resume__status-text semi-bold"></span>
-          Accepted
-        </div>
-      </span>
+            <span class="order-details-resume__status-text semi-bold"></span>
+            <ng-container *ngIf="isReferenceFound">
+              {{
+                driverData.result.status_list.pickup[this.lastIndexPickUp]
+                  .status
+              }}</ng-container
+            >
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <div class="order-card__section padding-2nd" (click)="onDropoffClick()">
+      <div class="order-card__icon">
+        <img
+          src="icons/dropOff.svg"
+          alt="Pickup Icon"
+          class="order-card__image"
+        />
+      </div>
+      <div class="order-card__details">
+        <span class="order-card__type heavy">DROPOFF</span>
+        <span class="order-card__location heavy">{{
+          orderData[0].destinations[1].address.split(",").pop()
+        }}</span>
+        <span class="order-card__address semi-bold"
+          >{{
+            orderData[0].destinations[1].address.slice(
+              0,
+              orderData[0].destinations[1].address.indexOf(",")
+            )
+          }}..</span
+        >
+        <span class="order-card__status semi-bold">
+          <div class="order-details-resume__status">
+            <span
+              class="order-details-resume__status-indicator"
+              [ngClass]="{
+                'order-status-assigned': 'Orden Asignada' == 'Orden Asignada',
+                'order-status-completed': 'Orden Asignada' != 'Orden Asignada'
+              }"
+            >
+              <!-- contenido del pedido -->
+            </span>
+
+            <span class="order-details-resume__status-text semi-bold"></span>
+            <ng-container *ngIf="isReferenceFound">
+              {{
+                this.driverData.result.status_list.dropoff[
+                  this.lastIndexDropOff
+                ].status
+              }}
+            </ng-container>
+          </div>
+        </span>
+      </div>
     </div>
   </div>
-  
-  <div class="order-card__section padding-2nd">
-    <div class="order-card__icon" (click)="onDropoffClick()">
-      <img src="icons/dropOff.svg" alt="Pickup Icon" class="order-card__image" />
-    </div>
-    <div class="order-card__details">
-      <span class="order-card__type heavy">PICKUP</span>
-      <span class="order-card__location heavy">New York</span>
-      <span class="order-card__address semi-bold">1789 NJ-27, Edison, 08817..</span>
-      <span class="order-card__status semi-bold">
-        <div class="order-details-resume__status">
-          <span
-            class="order-details-resume__status-indicator"
-            [ngClass]="{
-              'order-status-assigned': 'Orden Asignada' == 'Orden Asignada',
-              'order-status-completed': 'Orden Asignada' != 'Orden Asignada'
-            }"
-          >
-            <!-- contenido del pedido -->
-          </span>
 
-          <span class="order-details-resume__status-text semi-bold"></span>
-          On hold
+  <div class="order-tacker-card">
+    <div class="order-tracker__header">
+      <div class="order-tracker__image"></div>
+    </div>
+    <div class="order-hour__text heavy">
+      {{ this.datePipe.transform(this.contactData.date, "hh:mm a", "-0600") }}
+    </div>
+
+    <div class="order-tracker">
+      <div class="order-tracker__steps">
+      
+      <ng-container *ngIf="isActivePickup">
+        <ng-container *ngFor="let elemento of driverData.result.status_list.pickup">
+          <div 
+            [ngClass]="{
+              'order-tracker__step order-tracker__step--completed': elemento.active,
+              ' order-tracker__icon--inactive': !elemento.active
+            }" 
+            class="">
+            <div class="order-tracker__icon"
+            [ngClass]="{
+              ' order-tracker__icon--inactive': !elemento.active
+            }" 
+            
+            ></div>
+          </div>
+        </ng-container>
+      </ng-container>
+      
+      <ng-container *ngIf="!isActivePickup">
+        <ng-container *ngFor="let elemento of driverData.result.status_list.dropoff">
+          <div 
+          class="order-tracker__step"
+            [ngClass]="{
+              'order-tracker__step--completed': elemento.active,
+              'order-tracker__icon--inactive': !elemento.active
+            }" 
+            >
+            <div class="order-tracker__icon "
+            [ngClass]="{
+              ' order-tracker__icon--inactive': !elemento.active
+            }" 
+            
+            ></div>
+          </div>
+        </ng-container>
+      </ng-container>
+      </div>
+      
+
+      <!--<div class="order-tracker__steps">
+        <div class="order-tracker__step order-tracker__step--completed">
+          <div class="order-tracker__icon"></div>
         </div>
-      </span>
+        <div class="order-tracker__step order-tracker__step--completed">
+          <div class="order-tracker__icon"></div>
+        </div>
+        <div class="order-tracker__step">
+          <div class="order-tracker__icon order-tracker__icon--inactive"></div>
+        </div>
+        <div class="order-tracker__step">
+          <div class="order-tracker__icon order-tracker__icon--inactive"></div>
+        </div>
+      </div>-->
+
+      <div class="order-tracker__text">
+        <ng-container *ngIf="isActivePickup">
+          <ng-container *ngFor="let elemento of this.driverData.result.status_list.pickup">
+            <span class="order-tracker-step-text heavy order-tracker-step-margin">{{ elemento.status }}</span>
+          </ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="!isActivePickup">
+          <ng-container *ngFor="let elemento of this.driverData.result.status_list.dropoff">
+            <span class="order-tracker-step-text heavy order-tracker-step-margin">{{ elemento.status }}</span>
+          </ng-container>
+        </ng-container>
+        
+      </div>
+    </div>
+
+    <div  class="order-tracker-button-container">
+      <button   class="order-tracker__button heavy" [ngClass]="{'order-tracker__button': 3<=orderData[0].status }" mat-button (click)="trackMe()" [disabled]="orderData[0].status < 3">Track Order</button>
+    </div>
+    
+  </div>
+
+  <div class="order-expander-container">
+    <div class="order-expander-accordion">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ this.contactData.title }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="pickup-data__info">
+            <p class="pickup-data__address">
+              {{ this.contactData.direction }}
+            </p>
+            <div class="pickup-data__datetime">
+              <span class="pickup-data__date">{{
+                this.datePipe.transform(
+                  this.contactData.date,
+                  "dd/MM/yyyy",
+                  "-0600"
+                )
+              }}</span>
+              <span class="pickup-data__separator">•</span>
+              <span class="pickup-data__time">{{
+                this.datePipe.transform(
+                  this.contactData.date,
+                  "HH:mm a",
+                  "-0600"
+                )
+              }}</span>
+            </div>
+            <p class="pickup-data__phone">{{ contactData.phone }}</p>
+            <p class="pickstatus_stringup-data__email">
+              {{ contactData.email }}
+            </p>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
   </div>
 </div>

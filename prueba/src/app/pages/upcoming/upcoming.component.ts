@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { OrderService } from '../../order/order.service';
-import { Result } from '../../DTOs/allOrdersDTO';
 import { IncomingOrdersResponseDTO } from '../../DTOs/incomingOrdersResponseDTO';
 
 @Component({

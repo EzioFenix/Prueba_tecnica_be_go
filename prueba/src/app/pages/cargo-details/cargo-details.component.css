@@ -1,160 +1,452 @@
+.principal {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
 .order-card {
-    background-color: var(--background-color);
-    border-radius: 16px;
-    padding: 3px;
-    width: 395px;
-    font-family: Arial, sans-serif;
-    position: relative;
-    border: 1px solid transparent;
-    background-image: 
-    linear-gradient(#000000, #000000), /* Color base negro sólido */
-    radial-gradient(circle, 
-      #000000 0%, /* Negro al 0% */
-      rgba(186, 186, 186, 0.49) 55%, /* Gris (#BABABA) con 49% de opacidad al 55% */
-      rgba(132, 132, 132, 0) 99% /* Gris más oscuro (#848484) con 0% de opacidad al 99% */
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--background-color);
+  border-radius: 16px;
+  padding: 1px;
+  width: 395px;
+  font-family: Arial, sans-serif;
+  position: relative;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(#000000, #000000),
+    /* Color base negro sólido */
+    radial-gradient(circle,
+      #000000 0%,
+      /* Negro al 0% */
+      rgba(186, 186, 186, 0.49) 55%,
+      /* Gris (#BABABA) con 49% de opacidad al 55% */
+      rgba(132, 132, 132, 0) 99%
+      /* Gris más oscuro (#848484) con 0% de opacidad al 99% */
     );
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-  }
-  
-  
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+
 .order-card__header {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 24px;
-    font-size: 14px;
-    color: #ffffff;
-    padding-left: 78px;
-    padding-top: 25px;
-  }
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #ffffff;
+  padding-left: 78px;
+  padding-top: 25px;
+}
 
-  .order-card__reference{
-    width: 100;
-    font-size:  13.1px;
-    font-weight: 600;
-  }
+.order-card__reference {
+  width: 100;
+  font-size: 13.1px;
+  font-weight: 600;
+}
 
-  .order-card__order{
-    font-size: 17.5px;
-    font-weight: 600;
-    margin-top: 5px;
-  }
-  
-  .order-card__section {
-    display: flex;
-    padding-left: 78px;
-  }
+.order-card__order {
+  font-size: 17.5px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.order-card__section {
+  display: flex;
+  padding-left: 78px;
+}
+
 .order-card__image {
-    filter: grayscale(100%) brightness(0%);
-    width: 15px;
-    height: 24px;
+  filter: grayscale(100%) brightness(0%);
+  width: 15px;
+  height: 24px;
 }
 
-.padding-1st
-{
-    padding-bottom: 9px;
+.padding-1st {
+  padding-bottom: 9px;
 }
 
-.padding-2nd
-{
-    padding-top: 13.93px;
-    padding-bottom: 25.92px;
+.padding-2nd {
+  padding-top: 13.93px;
+  padding-bottom: 25.92px;
 }
-  
+
 
 
 
 
 .order-card__icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: radial-gradient(
-      circle,
-      #ffeb3b 0%,       /* Amarillo interno */
-      #ffeb3b 55%,      /* Amarillo interno hasta el 39% */
-      #000000 55%,      /* Negro inicia al 40% */
-      #000000 62%,      /* Negro termina al 59% */
-      #ffeb3b 63%,      /* Amarillo externo inicia al 60% */
-      #ffeb3b 100%      /* Amarillo externo completo */
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle,
+      var(--accent-color) 0%,
+      /* Amarillo interno */
+      var(--accent-color) 55%,
+      /* Amarillo interno hasta el 55% */
+      var(--text-color-darker) 55%,
+      /* Negro inicia al 55% */
+      var(--text-color-darker) 62%,
+      /* Negro termina al 62% */
+      var(--accent-color) 63%,
+      /* Amarillo externo inicia al 63% */
+      var(--accent-color) 100%
+      /* Amarillo externo completo */
     );
-    border-radius: 50%;
-    margin-right: 16px;
-  }
-  
-  
-  .order-card__icon img {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .order-card__details {
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-  }
-
-  .order-card__type {
-    color: var(--text-color-lighter);
-    font-size: 11.2px;
-  }
-  
-  .order-card__location {
-    color: var(--text-color-lighter);
-    font-size: 15.5px;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-  }
-  
-  .order-card__address {
-    font-size: 14.5px;
-    color: #7b7d7E;
-    margin-bottom: 5px;
-  }
-  
-  .order-card__status {
-    display: inline-flex;
-    align-items: center;
-    font-size: 11px;
-    color: #868889;
-    padding: 4px 12px;
-    border-radius: 12px;
-    text-transform: capitalize;
-    font-weight: bold;
-  }
-
-  .order-details-resume__status {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .order-details-resume__status-indicator {
-    width: 10.3px;
-    height: 10.3px;
-    background-color: #1e90ff;
-    border-radius: 50%;
-  }
-
-  .order-status-completed{
-    background-color: #1e90ff;
-  }
-
-.order-status-assigned{
-    background-color: #989898;
+  border-radius: 50%;
+  margin-right: 16px;
 }
 
-.order-details-resume__status-text{
-    color: var(--text-color-lighter);
+.order-card__section:hover{
+  cursor: pointer;
 }
-  
 
-  
-  .order-card__status--onhold {
-    background-color: #1c1c1e;
-    color: #ff9800;
-    border: 1px solid #ff9800;
-  }
-  
+
+.order-card__icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.order-card__details {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.order-card__type {
+  color: var(--text-color-lighter);
+  font-size: 11.2px;
+}
+
+.order-card__location {
+  color: var(--text-color-lighter);
+  font-size: 15.5px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.order-card__address {
+  font-size: 14.5px;
+  color: #7b7d7E;
+  margin-bottom: 5px;
+  max-width: 250px;
+}
+
+.order-card__status {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  color: #868889;
+  padding: 4px 12px;
+  border-radius: 12px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.order-details-resume__status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.order-details-resume__status-indicator {
+  width: 10.3px;
+  height: 10.3px;
+  background-color: #1e90ff;
+  border-radius: 50%;
+}
+
+.order-status-completed {
+  background-color: #1e90ff;
+}
+
+.order-status-assigned {
+  background-color: #989898;
+}
+
+.order-details-resume__status-text {
+  color: var(--text-color-lighter);
+}
+
+
+
+.order-card__status--onhold {
+  background-color: #1c1c1e;
+  color: #ff9800;
+  border: 1px solid #ff9800;
+}
+
+/*Usuario  */
+/* Contenedor principal */
+/* Imagen del perfil */
+/* Contenedor para la imagen redondeada */
+.order-tracker__header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  /* Espaciado entre la imagen y el contenido */
+}
+
+/* Contenedor de la imagen con fondo */
+.order-tracker__image {
+  width: 90px;
+  /* Dimensiones del contenedor circular */
+  height: 89.25px;
+  border-radius: 50%;
+  /* Hace el contenedor redondo */
+  background-image: url('/profile_image.png');
+  /* Imagen de fondo */
+  background-size: cover;
+  /* Ajusta la imagen para cubrir el área del contenedor */
+  background-position: center 10%;
+  /* Desplaza la imagen un poco hacia abajo */
+  background-repeat: no-repeat;
+  /* Evita que la imagen se repita */
+  position: absolute;
+  /* Permite colocar el contenedor sobre el resto del diseño */
+  top: -45px;
+  /* Baja el círculo hacia la mitad superior del contenedor */
+  left: 50%;
+  /* Centra horizontalmente el círculo */
+  transform: translateX(-50%);
+  /* Ajusta el punto de referencia al centro del círculo */
+  border: 8px solid #1e1e1e;
+  /* Añade un borde oscuro alrededor */
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+  /* Sombra hacia adentro para efecto de profundidad */
+}
+
+.order-tacker-card {
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text-color-lighter);
+  margin-top: 105.09px;
+  background-color: var(--background-color);
+  border-radius: 16px;
+  padding: 1px;
+  width: 395px;
+  font-family: Arial, sans-serif;
+  position: relative;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(#000000, #000000),
+    /* Color base negro sólido */
+    radial-gradient(circle,
+      #000000 0%,
+      /* Negro al 0% */
+      rgba(186, 186, 186, 0.49) 55%,
+      /* Gris (#BABABA) con 49% de opacidad al 55% */
+      rgba(132, 132, 132, 0) 99%
+      /* Gris más oscuro (#848484) con 0% de opacidad al 99% */
+    );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.order-tracker {
+  border-radius: 12px;
+  width: 100%;
+  padding-left: 39px;
+  padding-bottom: 49.6px;
+  display: flex;
+  position: relative;
+}
+
+.order-hour__text {
+  text-align: center;
+  margin-top: calc(45px + 28.88px);
+  margin-bottom: 39.01px;
+  width: 100%;
+  color: #F5F5F5;
+  font-size: 19.9px;
+}
+
+/* Línea conectiva */
+.order-tracker__steps {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 30px;
+}
+
+.order-tracker__text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 30px);
+  margin-left: 25.2px;
+}
+
+.order-tracker-step-text {
+  font-size: 15.4px;
+  color: #9FA0A1;
+}
+
+.order-tracker-step-margin {
+  margin-top: 26px;
+}
+
+.order-tracker-step-margin:first-of-type {
+  margin-top: 0;
+}
+
+.order-tracker__steps::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, yellow 0%, yellow 50%, #666 50%, #666 100%);
+  z-index: 0;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Paso (círculos) */
+.order-tracker__step {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Icono activo */
+.order-tracker__icon {
+  width: 28.3px;
+  height: 28.3px;
+  border-radius: 50%;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.order-tracker__icon::after {
+  content: '✔';
+  font-size: 16px;
+  color: black;
+}
+
+/* Icono inactivo */
+.order-tracker__icon--inactive {
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 1.0) 0%,
+      /* Centro blanco */
+      rgba(255, 255, 255, 1.0) 20%,
+      /* Centro blanco */
+      rgba(150, 150, 150, 1.0) 21%,
+      /* Primer anillo gris definido */
+      rgba(150, 150, 150, 1.0) 40%,
+      /* Primer anillo gris definido */
+      rgba(150, 150, 150, 0.5) 50%,
+      /* Primer anillo gris definido */
+      rgba(150, 150, 150, 0.5) 51%);
+  /* Fondo transparente */
+
+}
+
+
+
+.order-tracker__icon--inactive::after {
+  content: '';
+}
+
+/* Estados de la línea iluminada */
+.order-tracker__steps--progress-1::before {
+  background: linear-gradient(to bottom, yellow 0%, yellow 25%, #666 25%, #666 100%);
+}
+
+.order-tracker__steps--progress-2::before {
+  background: linear-gradient(to bottom, yellow 0%, yellow 50%, #666 50%, #666 100%);
+}
+
+.order-tracker__steps--progress-3::before {
+  background: linear-gradient(to bottom, yellow 0%, yellow 75%, #666 75%, #666 100%);
+}
+
+.order-tracker__steps--progress-4::before {
+  background: linear-gradient(to bottom, yellow 0%, yellow 100%);
+}
+
+
+.order-tracker-button-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 8.7px;
+}
+
+.order-tracker__button{
+  background-color: var(--accent-color) !important;
+  color: var(--text-color-darker) !important;
+}
+
+.order-tracker__button:hover{
+  cursor: pointer;
+}
+
+.order-tracker__button {
+  background-color: var(--background-color);
+  width: 360px;
+  height: 64.46px;
+  color: var(--text-color-lighter);
+  font-size: 20px;
+}
+
+
+/*Estilos de pickUp Data*/
+
+.order-expander-container {
+  margin-top: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.order-expander-accordion {
+  width: 357px;
+}
+
+/* Bloque principal */
+/* Información del panel */
+.pickup-data__info {
+  font-size: 14px;
+  color: #555;
+  padding: 8px 16px;
+}
+
+.pickup-data__address {
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.pickup-data__datetime {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.pickup-data__date,
+.pickup-data__time {
+  font-weight: bold;
+  color: #333;
+}
+
+.pickup-data__separator {
+  margin: 0 8px;
+  color: #999;
+}
+
+.pickup-data__phone {
+  margin-bottom: 8px;
+}
+
+.pickup-data__email {
+  color: #0073e6;
+  text-decoration: none;
+}

@@ -124,4 +124,15 @@ mat-mdc-text-field-wrapper {
   font-weight: 900;
 }
 
-  
+.mat-expansion-panel-body,
+.mat-expansion-panel-header{
+  background-color: var(--background-color) !important;
+  color: #EDEDED !important;
+}
+
+.mat-expansion-panel-header-title{
+  color: #EDEDED !important;
+}
+.mat-expansion-indicator::after{
+  color: var(--accent-color) !important;
+}

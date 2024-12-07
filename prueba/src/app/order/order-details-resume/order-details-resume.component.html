@@ -1,19 +1,23 @@
 <ng-container *ngFor="let order of incomingOrderResponse.result">
   <div class="order-details-resume">
     <div class="order-details-resume__header">
-      <span class="order-details-resume__order-id">Order <span class="bold-600">#{{ order.order_number }}</span></span>
+      <span class="order-details-resume__order-id"
+        >Order <span class="bold-600">#{{ order.order_number }}</span></span
+      >
     </div>
     <div class="order-details-resume__content">
       <div class="order-details-resume__shipment-info">
         <div class="order-details-resume__shipment-type">
           <img src="icons/{{ order.type }}.svg" />
-          
         </div>
         <div class="order-details-resume__status">
-          <span class="order-details-resume__status-indicator semi-bold" [ngClass]="{
+          <span
+            class="order-details-resume__status-indicator semi-bold"
+            [ngClass]="{
               'order-status-assigned': order.status_string == 'Orden Asignada',
               'order-status-completed': order.status_string != 'Orden Asignada'
-            }">
+            }"
+          >
             <!-- contenido del pedido -->
           </span>
           <span class="order-details-resume__status-text">{{
@@ -99,11 +103,22 @@
             timers[order.order_number].timeRemaining
           }}</span>
         </div>
-        <button mat-button [disabled]="isActiveTimer" class="order-details-resume__resume-button">
+        <button
+          mat-button
+          [disabled]="isActiveTimer"
+          class="order-details-resume__resume-button"
+          (click)="navigateCargoDetails(order.order_number)"
+        >
           Resume
-                    <img class="resume-button-image" (click)="navigateCargoDetails(order.order_number)" [ngClass]="{'resume-button-disable-image': isActiveTimer}" src="icons/Observability.svg" alt="Resume" />
+          <img
+            class="resume-button-image"
+            [ngClass]="{'resume-button-disable-image': isActiveTimer}"
+            src="icons/Observability.svg"
+            alt="Resume"
+          />
         </button>
       </div>
+      
     </div>
   </div>
 </ng-container>
